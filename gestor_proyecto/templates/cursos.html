@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Cursos</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        body{
+            background: linear-gradient(135deg,#e0f2fe,#f8fafc,#dcfce7);
+        }
+
+        .curso-card{
+            transition: .3s;
+        }
+
+        .curso-card:hover{
+            transform: translateY(-8px);
+            box-shadow:0 18px 35px rgba(0,0,0,.15);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen p-10">
+
+<div class="max-w-6xl mx-auto">
+
+    <div class="bg-white rounded-3xl shadow-xl p-8">
+
+        <div class="flex items-center gap-4 mb-8 border-b pb-6">
+
+            <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center">
+                <i class="fa-solid fa-graduation-cap text-3xl text-green-600"></i>
+            </div>
+
+            <div>
+                <h1 class="text-4xl font-bold text-gray-800">
+                    Gestión de Cursos
+                </h1>
+
+                <p class="text-gray-500">
+                    Consulta todos los cursos registrados.
+                </p>
+            </div>
+
+        </div>
+
+        {% if cursos %}
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {% for curso in cursos %}
+
+            <div class="curso-card bg-white border rounded-2xl p-6 shadow-md">
+
+                <div class="flex justify-between">
+
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        Curso
+                    </span>
+
+                    <i class="fa-solid fa-book text-2xl text-green-500"></i>
+
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-800 mt-5">
+                    {{ curso.materia }}
+                </h2>
+
+                <div class="mt-5 space-y-3 text-gray-600">
+
+                    <p>
+                        <i class="fa-solid fa-user text-green-600"></i>
+                        <strong>Instructor:</strong> {{ curso.instructor }}
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-users text-blue-600"></i>
+                        <strong>Cupos:</strong> {{ curso.cupo }}
+                    </p>
+
+                </div>
+
+                <div class="flex gap-3 mt-6">
+
+                    <button class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-xl transition">
+                        <i class="fa-solid fa-eye"></i>
+                        Ver
+                    </button>
+
+                    <button  class="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 rounded-xl transition">
+                        <i class="fa-solid fa-trash"></i>
+                        Eliminar
+                    </button>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="text-center py-20">
+
+            <i class="fa-solid fa-book-open text-7xl text-gray-300"></i>
+
+            <h2 class="text-3xl font-bold text-gray-500 mt-5">
+                No hay cursos registrados
+            </h2>
+
+            <p class="text-gray-400 mt-3">
+                Agrega tu primer curso para comenzar.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+        <div class="border-t mt-10 pt-5 flex justify-between text-gray-500">
+
+            <span>
+                <i class="fa-solid fa-book"></i>
+                Total de cursos:
+                <strong>{{ cursos|length }}</strong>
+            </span>
+
+            <span>
+                <i class="fa-brands fa-python text-blue-500"></i>
+                Django + Tailwind CSS
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

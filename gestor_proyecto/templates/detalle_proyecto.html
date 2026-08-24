@@ -1,0 +1,132 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    body {
+        background: #f8fafc;
+    }
+</style>
+
+<div class="max-w-4xl mx-auto px-6 py-10">
+
+    <!-- ENCABEZADO -->
+    <div class="flex items-center gap-4 border-b pb-6 mb-8">
+
+        <div class="bg-indigo-100 p-4 rounded-2xl">
+            <i class="fa-solid fa-folder-open text-indigo-600 text-3xl"></i>
+        </div>
+
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800">
+                Detalle del proyecto
+            </h1>
+
+            <p class="text-gray-500 mt-1">
+                Información del proyecto seleccionado
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- PROYECTO SELECCIONADO -->
+    <div class="bg-white rounded-2xl border border-gray-200
+                shadow-sm p-8">
+
+        <!-- NOMBRE -->
+        <div class="mb-7">
+
+            <p class="text-sm text-gray-400 uppercase tracking-wide">
+                Nombre
+            </p>
+
+            <h2 class="text-3xl font-bold text-indigo-600 mt-2">
+                {{ proyectos.nombre }}
+            </h2>
+
+        </div>
+
+
+        <!-- DESCRIPCIÓN -->
+        <div class="mb-7">
+
+            <p class="text-sm text-gray-400 uppercase tracking-wide">
+                Descripción
+            </p>
+
+            <p class="text-gray-600 text-lg mt-2 leading-relaxed">
+                {{ proyectos.descripcion }}
+            </p>
+
+        </div>
+
+
+        <!-- DURACIÓN -->
+        <div class="mb-8">
+
+            <p class="text-sm text-gray-400 uppercase tracking-wide">
+                Duración
+            </p>
+
+            <div class="flex items-center gap-3 mt-2">
+
+                <div class="bg-indigo-100 p-3 rounded-xl">
+                    <i class="fa-regular fa-clock text-indigo-600"></i>
+                </div>
+
+                <span class="text-lg font-semibold text-gray-700">
+                    {{ proyectos.duracion }}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTONES -->
+        <div class="border-t pt-6 flex items-center gap-3">
+
+            <!-- BOTÓN VOLVER -->
+            <a href="{% url 'proyecto2' %}"
+               class="inline-flex items-center gap-2
+                      bg-gray-600 hover:bg-gray-700
+                      text-white font-medium
+                      px-5 py-3 rounded-xl
+                      transition">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Volver a proyectos
+
+            </a>
+
+
+            <!-- BOTÓN EDITAR -->
+            <a href="{% url 'editar_proyecto' proyectos.id %}"
+               class="inline-flex items-center gap-2
+                      bg-indigo-600 hover:bg-indigo-700
+                      text-white font-medium
+                      px-5 py-3 rounded-xl
+                      transition">
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                Editar proyecto
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PIE -->
+    <div class="text-center text-sm text-gray-400 mt-8">
+
+        Gestión de Proyectos · Django
+
+    </div>
+
+</div>
