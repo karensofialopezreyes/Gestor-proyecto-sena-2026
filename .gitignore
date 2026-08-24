@@ -1,5 +1,6 @@
-#Entorno virtual
-DUCK2/
+# Entorno virtual
+.DUCK/
 
-#Base de datos
-db.sqlite3/
+# Base de datos
+db.sqlite3
+

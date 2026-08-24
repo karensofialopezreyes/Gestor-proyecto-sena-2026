@@ -35,8 +35,8 @@ def nuevo_registro(request):
     return HttpResponse("bien")
 
 def ver_productos(request, id):
-    proyectos = Proyecto.objects.get(id=id)
-    return render(request, "detalle_proyecto.html", {"proyectos": proyectos})
+    proyecto = Proyecto.objects.get(id=id)
+    return render(request, "detalle_proyecto.html", {"proyecto": proyecto})
 
 def cursos(request):
     cursos = Curso.objects.all()
@@ -85,14 +85,28 @@ def editar_proyecto(request, id):
     )
 
 def crear_tarea(request, proyecto_id):
-    proyecto = get_object_or_404(Proyecto,id=proyecto_id)
+    proyecto = get_object_or_404(Proyecto, id=proyecto_id)
 
     if request.method == "POST":
-        pass
-    datos={
-        'proyecto':proyecto,
-        'prioridad_choise':Tarea.PRIODIDAD_CHOICES,
-        'estado_choise':Tarea.ESATADO_CHOICES
+        titulo = request.POST.get("titulo").strip()
+        prioridad = request.POST.get("prioridad")
+        estado = request.POST.get("estado")
+
+        if titulo:
+            tarea=Tarea.objects.create(
+                proyecto=proyecto,
+                titulo=titulo,
+                prioridad=prioridad,
+                estado=estado,
+             )
+            tarea.save()
+
+            return redirect('ver-proyecto', id=proyecto.id)
+
+    datos = {
+        'proyecto': proyecto,
+        'prioridad_choise': Tarea.PRIODIDAD_CHOICES,
+        'estado_choise': Tarea.ESATADO_CHOICES,
     }
 
-    return render(request,'crear-tarea.html', {'proyecto': proyecto})
+    return render(request, 'crear-tarea.html', datos)
