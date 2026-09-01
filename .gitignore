@@ -1,0 +1,12 @@
+# Entorno virtual
+.DUCK/
+
+# Base de datos
+db.sqlite3
+
+# Cache
+__pycache__/
+*.py[cod]
+*.pyc
+*.Spy.class
+.venv/

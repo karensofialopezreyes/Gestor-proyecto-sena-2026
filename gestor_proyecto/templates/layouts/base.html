@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestor de Proyectos</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="bg-slate-900 text-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+
+            <div class="flex items-center justify-between">
+
+                <h1 class="text-xl font-bold">
+                    PROYECTO ACTIVO
+                </h1>
+
+                <div class="flex gap-6">
+
+                    <a href="{% url 'home' %}"
+                       class="hover:text-blue-400 transition">
+                        Inicio
+                    </a>
+
+                    <a href="{% url 'proyecto2' %}"
+                       class="hover:text-blue-400 transition">
+                        Proyectos
+                    </a>
+                    <a href="{% url 'acercade' %}"
+                       class="hover:text-blue-400 transition">
+                        Acerca de
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- CONTENIDO DE LAS PÁGINAS -->
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>

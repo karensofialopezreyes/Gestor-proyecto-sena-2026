@@ -1,0 +1,735 @@
+Claro 💗 Te lo dejo **todo completo en un bloque de código normal**, para que puedas usar el botón **Copiar** y pegarlo directamente en tu archivo.
+
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acerca de mí | YUDI VALENTINA LAGUNA</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff9fc;
+            color: #5f5964;
+        }
+
+        /* ================= COLORES PASTEL ================= */
+
+        .gradient-bg {
+            background: linear-gradient(
+                135deg,
+                #f8dff0 0%,
+                #e5dcfa 45%,
+                #d9eff7 100%
+            );
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px rgba(190, 170, 200, 0.20);
+        }
+    </style>
+</head>
+
+<body class="bg-[#fff9fc]">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+
+            <div class="flex items-center gap-3">
+
+                <div
+                    class="w-11 h-11 rounded-2xl bg-[#e8c9df] text-[#76566d] flex items-center justify-center shadow-md">
+
+                    <i class="fas fa-code text-xl"></i>
+
+                </div>
+
+                <div>
+
+                    <h1 class="font-bold text-[#514a55] text-lg">
+                        YUDI VALENTINA LAGUNA
+                    </h1>
+
+                    <p class="text-xs text-[#968b99]">
+                        Aprendiz SENA
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Menu -->
+
+            <div class="hidden md:flex items-center gap-7">
+
+                <a href="#inicio"
+                    class="text-[#716876] hover:text-[#c985aa] font-medium transition">
+                    Inicio
+                </a>
+
+                <a href="#sobre-mi"
+                    class="text-[#716876] hover:text-[#c985aa] font-medium transition">
+                    Sobre mí
+                </a>
+
+                <a href="#formacion"
+                    class="text-[#716876] hover:text-[#c985aa] font-medium transition">
+                    Formación
+                </a>
+
+                <a href="#contacto"
+                    class="text-[#716876] hover:text-[#c985aa] font-medium transition">
+                    Contacto
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section id="inicio"
+        class="gradient-bg min-h-screen flex items-center pt-20">
+
+        <div
+            class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+
+            <!-- Texto -->
+
+            <div class="text-[#5c5260] fade-in">
+
+                <span
+                    class="inline-block glass px-5 py-2 rounded-full text-sm mb-6 shadow-sm">
+
+                    <i class="fas fa-graduation-cap mr-2 text-[#b9789d]"></i>
+
+                    Aprendiz SENA
+
+                </span>
+
+
+                <h1
+                    class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-[#554b58]">
+
+                    Hola, soy
+
+                    <span class="text-[#bd7fa5]">
+                        YUDI VALENTINA LAGUNA
+                    </span>
+
+                </h1>
+
+
+                <p
+                    class="text-xl text-[#716676] leading-relaxed mb-8">
+
+                    Aprendiz del SENA, apasionado por la tecnología,
+                    el desarrollo web y el aprendizaje de nuevas
+                    herramientas digitales.
+
+                </p>
+
+
+                <div class="flex flex-wrap gap-4">
+
+                    <a href="#sobre-mi"
+                        class="bg-white text-[#ad7197] px-7 py-3 rounded-2xl font-bold hover:bg-[#fff4f9] transition shadow-md">
+
+                        Conóceme
+
+                        <i class="fas fa-arrow-down ml-2"></i>
+
+                    </a>
+
+
+                    <a href="#formacion"
+                        class="bg-white/50 border border-white/70 text-[#675a69] px-7 py-3 rounded-2xl font-bold hover:bg-white/70 transition">
+
+                        Mi formación
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Tarjeta -->
+
+            <div class="flex justify-center">
+
+                <div class="relative floating">
+
+                    <!-- Círculo principal -->
+
+                    <div
+                        class="w-72 h-72 md:w-80 md:h-80 rounded-full bg-white/40 border-4 border-white/70 flex items-center justify-center shadow-xl">
+
+                        <div
+                            class="w-60 h-60 md:w-68 md:h-68 rounded-full bg-white flex items-center justify-center shadow-lg">
+
+                            <div class="text-center">
+
+                                <div
+                                    class="w-28 h-28 mx-auto rounded-full bg-[#e8c8df] flex items-center justify-center text-[#9d6687] mb-4">
+
+                                    <i class="fas fa-user text-5xl"></i>
+
+                                </div>
+
+
+                                <h2 class="text-2xl font-bold text-[#554b58]">
+                                    YUDI VALENTINA LAGUNA
+                                </h2>
+
+                                <p class="text-[#998e9c]">
+                                    Aprendiz SENA
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Decoración -->
+
+                    <div
+                        class="absolute -top-5 -right-5 w-16 h-16 bg-[#f7dfb8] rounded-2xl flex items-center justify-center text-[#a98652] shadow-md rotate-12">
+
+                        <i class="fas fa-lightbulb text-2xl"></i>
+
+                    </div>
+
+
+                    <div
+                        class="absolute -bottom-5 -left-5 w-16 h-16 bg-[#cce9dc] rounded-2xl flex items-center justify-center text-[#65957d] shadow-md -rotate-12">
+
+                        <i class="fas fa-laptop-code text-2xl"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SOBRE MI ================= -->
+
+    <section id="sobre-mi" class="py-24 bg-white">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+
+                <span
+                    class="text-[#bd7fa5] font-bold uppercase tracking-widest">
+
+                    Conóceme
+
+                </span>
+
+                <h2 class="text-4xl font-extrabold text-[#554b58] mt-3">
+
+                    Acerca de mí
+
+                </h2>
+
+                <div
+                    class="w-20 h-1 bg-[#e5b8d0] mx-auto mt-5 rounded-full">
+                </div>
+
+            </div>
+
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                <!-- Imagen / Icono -->
+
+                <div class="flex justify-center">
+
+                    <div
+                        class="w-80 h-80 rounded-[2.5rem] bg-gradient-to-br from-[#e9c9df] to-[#ddd4f3] flex items-center justify-center shadow-xl rotate-3">
+
+                        <div class="text-center text-[#80677c] -rotate-3">
+
+                            <i class="fas fa-user-graduate text-8xl mb-6"></i>
+
+                            <h3 class="text-3xl font-bold">
+                                YUDI VALENTINA LAGUNA
+                            </h3>
+
+                            <p class="text-[#9c7f95] mt-2">
+                                Aprendiz del SENA
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Información -->
+
+                <div>
+
+                    <h3 class="text-3xl font-bold text-[#554b58] mb-6">
+                        Mi historia
+                    </h3>
+
+
+                    <p class="text-[#766d79] text-lg leading-relaxed mb-5">
+
+                        Mi nombre es
+                        <strong class="text-[#ad7197]">
+                            YUDI VALENTINA LAGUNA
+                        </strong>
+                        y soy aprendiz del
+                        <strong class="text-[#ad7197]">
+                            SENA – Centro de Comercio y Servicios,
+                            Regional Tolima
+                        </strong>.
+
+                    </p>
+
+
+                    <p class="text-[#766d79] text-lg leading-relaxed mb-5">
+
+                        Este sitio web hace parte de mi proceso de formación
+                        y representa una oportunidad para poner en práctica
+                        los conocimientos adquiridos durante mi aprendizaje.
+
+                    </p>
+
+
+                    <p class="text-[#766d79] text-lg leading-relaxed">
+
+                        Me interesa seguir aprendiendo sobre tecnología,
+                        programación y desarrollo de soluciones digitales,
+                        buscando mejorar constantemente mis habilidades.
+
+                    </p>
+
+
+                    <!-- Datos -->
+
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+
+                        <div
+                            class="bg-[#fdf0f7] p-5 rounded-2xl border border-[#f2dce9]">
+
+                            <i class="fas fa-user text-[#bd7fa5] text-2xl mb-3"></i>
+
+                            <p class="text-sm text-[#9b919d]">
+                                Nombre
+                            </p>
+
+                            <p class="font-bold text-[#554b58]">
+                                YUDI VALENTINA LAGUNA
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="bg-[#eef8f4] p-5 rounded-2xl border border-[#d9eee5]">
+
+                            <i
+                                class="fas fa-map-marker-alt text-[#78a890] text-2xl mb-3">
+                            </i>
+
+                            <p class="text-sm text-[#9b919d]">
+                                Regional
+                            </p>
+
+                            <p class="font-bold text-[#554b58]">
+                                Tolima
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FORMACION ================= -->
+
+    <section id="formacion" class="py-24 bg-[#fff9fc]">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-16">
+
+                <span
+                    class="text-[#bd7fa5] font-bold uppercase tracking-widest">
+
+                    Mi proceso
+
+                </span>
+
+                <h2 class="text-4xl font-extrabold text-[#554b58] mt-3">
+
+                    Formación
+
+                </h2>
+
+                <p class="text-[#8c838f] mt-4 max-w-2xl mx-auto">
+
+                    Una parte importante de mi crecimiento personal y
+                    profesional se encuentra en el proceso de formación.
+
+                </p>
+
+            </div>
+
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Tarjeta 1 -->
+
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-md card-hover border-t-4 border-[#dfb3cb]">
+
+                    <div
+                        class="w-16 h-16 bg-[#f9e6f0] rounded-2xl flex items-center justify-center text-[#bd7fa5] mb-6">
+
+                        <i class="fas fa-graduation-cap text-3xl"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-[#554b58] mb-3">
+                        Formación SENA
+                    </h3>
+
+                    <p class="text-[#766d79] leading-relaxed">
+
+                        Desarrollo mi proceso de aprendizaje como aprendiz
+                        del Servicio Nacional de Aprendizaje.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Tarjeta 2 -->
+
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-md card-hover border-t-4 border-[#c9bce5]">
+
+                    <div
+                        class="w-16 h-16 bg-[#eeeafa] rounded-2xl flex items-center justify-center text-[#8d79b5] mb-6">
+
+                        <i class="fas fa-laptop-code text-3xl"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-[#554b58] mb-3">
+                        Tecnología
+                    </h3>
+
+                    <p class="text-[#766d79] leading-relaxed">
+
+                        Fortalezco mis conocimientos en programación,
+                        desarrollo web y herramientas tecnológicas.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Tarjeta 3 -->
+
+                <div
+                    class="bg-white rounded-3xl p-8 shadow-md card-hover border-t-4 border-[#b9dfcf]">
+
+                    <div
+                        class="w-16 h-16 bg-[#e8f6f0] rounded-2xl flex items-center justify-center text-[#70a48c] mb-6">
+
+                        <i class="fas fa-rocket text-3xl"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-[#554b58] mb-3">
+                        Crecimiento
+                    </h3>
+
+                    <p class="text-[#766d79] leading-relaxed">
+
+                        Busco adquirir nuevas habilidades y prepararme
+                        para futuros retos profesionales.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SENA ================= -->
+
+    <section
+        class="py-24 bg-gradient-to-br from-[#e8dff5] via-[#f8e2ed] to-[#dcefe9]">
+
+        <div class="max-w-5xl mx-auto px-6 text-center text-[#635969]">
+
+            <div
+                class="w-24 h-24 bg-white/60 border border-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm">
+
+                <i
+                    class="fas fa-building-columns text-5xl text-[#9b7893]">
+                </i>
+
+            </div>
+
+
+            <h2
+                class="text-4xl md:text-5xl font-extrabold mb-6 text-[#574c5b]">
+
+                SENA
+
+            </h2>
+
+
+            <p class="text-xl text-[#766a78] leading-relaxed max-w-3xl mx-auto">
+
+                Centro de Comercio y Servicios
+                <br>
+
+                <strong class="text-[#9a718e]">
+                    Regional Tolima
+                </strong>
+
+            </p>
+
+
+            <div
+                class="mt-8 inline-flex items-center gap-3 bg-white/50 border border-white px-6 py-3 rounded-full shadow-sm">
+
+                <i class="fas fa-location-dot text-[#9b7893]"></i>
+
+                <span>
+                    Regional Tolima
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACTO ================= -->
+
+    <section id="contacto" class="py-24 bg-white">
+
+        <div class="max-w-4xl mx-auto px-6 text-center">
+
+            <span
+                class="text-[#bd7fa5] font-bold uppercase tracking-widest">
+
+                Gracias por visitar
+
+            </span>
+
+
+            <h2
+                class="text-4xl font-extrabold text-[#554b58] mt-3 mb-6">
+
+                ¿Quieres conocer más?
+
+            </h2>
+
+
+            <p class="text-[#766d79] text-lg max-w-2xl mx-auto">
+
+                Este proyecto representa parte de mi proceso de aprendizaje
+                y crecimiento como aprendiz del SENA.
+
+            </p>
+
+
+            <div class="flex justify-center gap-5 mt-10">
+
+                <div
+                    class="w-14 h-14 rounded-2xl bg-[#f9e6f0] text-[#bd7fa5] flex items-center justify-center shadow-sm">
+
+                    <i class="fas fa-code text-xl"></i>
+
+                </div>
+
+
+                <div
+                    class="w-14 h-14 rounded-2xl bg-[#eeeafa] text-[#8d79b5] flex items-center justify-center shadow-sm">
+
+                    <i class="fas fa-laptop text-xl"></i>
+
+                </div>
+
+
+                <div
+                    class="w-14 h-14 rounded-2xl bg-[#e8f6f0] text-[#70a48c] flex items-center justify-center shadow-sm">
+
+                    <i class="fas fa-graduation-cap text-xl"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="bg-[#554b58] text-white py-10">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-5">
+
+                <div class="text-center md:text-left">
+
+                    <h3 class="text-xl font-bold">
+                        YUDI VALENTINA LAGUNA
+                    </h3>
+
+                    <p class="text-[#d8ced8] mt-1">
+                        Aprendiz SENA
+                    </p>
+
+                </div>
+
+
+                <div class="text-center">
+
+                    <p class="text-[#d8ced8]">
+                        SENA – Centro de Comercio y Servicios
+                    </p>
+
+                    <p class="text-[#b9aeb9] text-sm mt-1">
+                        Regional Tolima
+                    </p>
+
+                </div>
+
+
+                <div class="flex gap-4">
+
+                    <a href="#inicio"
+                        class="w-10 h-10 bg-[#6b5e6d] rounded-xl flex items-center justify-center hover:bg-[#bd7fa5] transition">
+
+                        <i class="fas fa-arrow-up"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="border-t border-[#756978] mt-8 pt-6 text-center">
+
+                <p class="text-[#b9aeb9] text-sm">
+
+                    © 2026 YUDI LAGUNA.
+                    Proyecto desarrollado como parte del proceso de
+                    formación SENA.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
+```
