@@ -1,15 +1,45 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.models import User
+
 
 def registro(request):
+    datos = ''
+    errores = []
+
     if request.method == "POST":
-       form = UserCreationForm(request.POST)
-       if form.is_valid():
-           user = form.save()
-           login(request, user)
-           return redirect('home')
-    else:
-        form = UserCreationForm()
-    return render(request, 'registro.html', {'form': form})
-        
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        datos = request.POST
+
+        # Validación básica
+        if password1 != password2:
+            errores.append('Las contraseñas no coinciden')
+
+        if User.objects.filter(username=username).exists():
+            errores.append('El nombre de usuario ya existe')
+
+        if User.objects.filter(email=email).exists():
+            errores.append('El correo electrónico ya está registrado')
+
+        # Crear usuario si no hay errores
+        if not errores:
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                password=password1,
+                first_name=first_name,
+                last_name=last_name
+            )
+
+            # Iniciar sesión automáticamente
+            login(request, user)
+
+            return redirect('home')
+
+    return render(request,'registro.html',{'errors': errores,'dato': datos})
