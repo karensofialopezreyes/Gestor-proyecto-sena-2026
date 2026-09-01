@@ -1,171 +1,167 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'layouts/base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
 
-    <title>Proyectos</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<div class="max-w-6xl mx-auto px-6 py-10">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+    <!-- ENCABEZADO -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
 
-<body class="bg-slate-100 min-h-screen">
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800">
+                Mis Proyectos
+            </h1>
 
-    <div class="max-w-6xl mx-auto px-6 py-10">
-
-        <!-- ENCABEZADO -->
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-
-            <div>
-                <h1 class="text-3xl font-bold text-slate-800">
-                    Mis Proyectos
-                </h1>
-
-                <p class="text-slate-500 mt-1">
-                    Lista de proyectos registrados
-                </p>
-            </div>
-
-            <!-- NUEVO PROYECTO -->
-            <a href="{% url 'nuevo-proyecto' %}"
-               class="inline-flex items-center gap-2
-                      bg-orange-500 text-white
-                      px-5 py-2.5 rounded-xl
-                      hover:bg-orange-600
-                      transition">
-
-                <i class="fa-solid fa-plus"></i>
-
-                Nuevo Proyecto
-
-            </a>
-
+            <p class="text-slate-500 mt-1">
+                Lista de proyectos registrados
+            </p>
         </div>
 
+        <!-- NUEVO PROYECTO -->
+        <a href="{% url 'nuevo-proyecto' %}"
+           class="inline-flex items-center gap-2
+                  bg-orange-500 text-white
+                  px-5 py-2.5 rounded-xl
+                  hover:bg-orange-600 transition">
 
-        <!-- PROYECTOS -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <i class="fa-solid fa-plus"></i>
 
-            {% for proyecto in proyectos %}
+            Nuevo Proyecto
 
-            <!-- TARJETA -->
-            <div class="bg-white rounded-2xl
-                        shadow-sm border border-slate-200
-                        p-6 hover:shadow-md transition">
-
-                <!-- ICONO E ID -->
-                <div class="flex items-center justify-between mb-4">
-
-                    <div class="bg-indigo-100 text-indigo-600
-                                w-12 h-12 rounded-xl
-                                flex items-center justify-center">
-
-                        <i class="fa-solid fa-folder text-xl"></i>
-
-                    </div>
-
-                    <span class="text-xs text-slate-400">
-                        ID: {{ proyecto.id }}
-                    </span>
-
-                </div>
-
-
-                <!-- NOMBRE -->
-                <h2 class="text-xl font-bold text-slate-800 mb-2">
-                    {{ proyecto.nombre }}
-                </h2>
-
-
-                <!-- DESCRIPCIÓN -->
-                <p class="text-sm text-slate-500 mb-4">
-                    {{ proyecto.descripcion }}
-                </p>
-
-
-                <!-- DURACIÓN -->
-                <div class="flex items-center gap-2
-                            text-sm text-slate-500 mb-6">
-
-                    <i class="fa-solid fa-clock text-indigo-500"></i>
-
-                    <span>
-                        {{ proyecto.duracion }}
-                    </span>
-
-                </div>
-
-
-                <!-- BOTONES -->
-                <div class="flex items-center gap-3">
-
-                    <!-- VER -->
-                    <a href="{% url 'ver-proyecto' proyecto.id %}"
-                       class="flex-1
-                              inline-flex items-center justify-center gap-2
-                              bg-indigo-50 hover:bg-indigo-100
-                              text-indigo-600 font-medium
-                              px-4 py-2.5 rounded-xl
-                              transition">
-
-                        <i class="fa-solid fa-eye"></i>
-
-                        Ver
-
-                    </a>
-
-
-                    <!-- ELIMINAR -->
-                    <a href="{% url 'eliminar_proyecto' proyecto.id %}"
-                       onclick="return confirm('¿Seguro que quieres eliminar este proyecto?');"
-                       class="inline-flex items-center justify-center gap-2
-                              bg-red-50 hover:bg-red-100
-                              text-red-600 font-medium
-                              px-4 py-2.5 rounded-xl
-                              transition">
-
-                        <i class="fa-solid fa-trash"></i>
-
-                        Eliminar
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            {% empty %}
-
-            <!-- SIN PROYECTOS -->
-            <div class="col-span-full
-                        bg-white rounded-2xl
-                        p-10 text-center
-                        border border-slate-200">
-
-                <i class="fa-solid fa-folder-open
-                          text-4xl text-slate-300 mb-4"></i>
-
-                <h2 class="text-xl font-semibold text-slate-700">
-                    No hay proyectos
-                </h2>
-
-                <p class="text-slate-400 mt-2">
-                    Todavía no has creado ningún proyecto.
-                </p>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
+        </a>
 
     </div>
 
-</body>
 
-</html>
+    <!-- PROYECTOS -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {% for proyecto in proyectos %}
+
+        <!-- TARJETA -->
+
+        <div class="bg-white rounded-2xl
+                    shadow-sm border border-slate-200
+                    p-6 hover:shadow-md transition">
+
+            <!-- ICONO -->
+
+            <div class="flex items-center justify-between mb-4">
+
+                <div class="bg-indigo-100 text-indigo-600
+                            w-12 h-12 rounded-xl
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-folder text-xl"></i>
+
+                </div>
+
+                <span class="text-xs text-slate-400">
+                    ID: {{ proyecto.id }}
+                </span>
+
+            </div>
+
+
+            <!-- NOMBRE -->
+
+            <h2 class="text-xl font-bold text-slate-800 mb-2">
+                <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.nombre }}" class="h-10">
+                {{ proyecto.nombre }}
+            </h2>
+
+
+            <!-- DESCRIPCIÓN -->
+
+            <p class="text-sm text-slate-500 mb-4">
+                {{ proyecto.descripcion }}
+            </p>
+
+
+            <!-- DURACIÓN -->
+
+            <div class="flex items-center gap-2
+                        text-sm text-slate-500 mb-6">
+
+                <i class="fa-solid fa-clock text-indigo-500"></i>
+
+                <span>
+                    {{ proyecto.duracion }}
+                </span>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="flex items-center gap-3">
+
+                <!-- VER -->
+
+                <a href="{% url 'ver-proyecto' proyecto.id %}"
+                   class="flex-1
+                          inline-flex items-center justify-center gap-2
+                          bg-indigo-50 hover:bg-indigo-100
+                          text-indigo-600 font-medium
+                          px-4 py-2.5 rounded-xl
+                          transition">
+
+                    <i class="fa-solid fa-eye"></i>
+
+                    Ver
+
+                </a>
+
+
+                <!-- ELIMINAR -->
+
+                <a href="{% url 'eliminar_proyecto' proyecto.id %}"
+                   onclick="return confirm('¿Seguro que quieres eliminar este proyecto?');"
+                   class="inline-flex items-center justify-center gap-2
+                          bg-red-50 hover:bg-red-100
+                          text-red-600 font-medium
+                          px-4 py-2.5 rounded-xl
+                          transition">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Eliminar
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        {% empty %}
+
+        <!-- NO HAY PROYECTOS -->
+
+        <div class="col-span-full
+                    bg-white rounded-2xl
+                    p-10 text-center
+                    border border-slate-200">
+
+            <i class="fa-solid fa-folder-open
+                      text-4xl text-slate-300 mb-4"></i>
+
+            <h2 class="text-xl font-semibold text-slate-700">
+                No hay proyectos
+            </h2>
+
+            <p class="text-slate-400 mt-2">
+                Todavía no has creado ningún proyecto.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

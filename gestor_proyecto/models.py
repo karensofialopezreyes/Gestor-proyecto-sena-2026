@@ -8,6 +8,7 @@ class  Proyecto(models.Model):
     nombre = models.CharField(max_length=100) #campo de texto varchar
     descripcion = models.TextField() #campo de texto largo
     duracion = models.IntegerField() # campo entero
+    imagen = models.ImageField(upload_to='img/', default='img/Logo.png')
 
 from django.db import models
 
