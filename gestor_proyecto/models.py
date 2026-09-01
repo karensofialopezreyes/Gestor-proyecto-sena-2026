@@ -10,7 +10,8 @@ class  Proyecto(models.Model):
     duracion = models.IntegerField() # campo entero
     imagen = models.ImageField(upload_to='img/', default='img/Logo.png')
 
-from django.db import models
+    def __str__(self):
+        return self.nombre
 
 class Tarea(models.Model):
     '''
@@ -46,3 +47,6 @@ class Curso(models.Model):
     Materia = models.CharField(max_length=100)   # campo de texto varchar
     instructor = models.CharField(max_length=50) # nombre del instructor
     cupos = models.IntegerField()               # cantidad de cupos disponibles
+
+    def __str__(self):
+        return self.titulo + "(" + self.proyecto.nombre + ")"
