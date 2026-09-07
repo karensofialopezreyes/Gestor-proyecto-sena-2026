@@ -46,6 +46,7 @@ def ver_productos(request, id):
 
 def cursos(request):
     cursos = Curso.objects.all()
+    p.save()
     return render(request, "cursos.html", {"cursos": cursos})
 
 def nuevo_proyecto(request):
